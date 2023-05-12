@@ -32,7 +32,7 @@ def preprocessing(recieveecg, recieveppg):
 def index():
     return render_template('index.html')
 
-@app.route('/predict', methods=['POST'])
+@app.route('/predict', methods=['GET','POST'])
 def predict():
     if request.method == "POST":
         recieveecg=request.files['ecg']
@@ -43,7 +43,7 @@ def predict():
 
     return render_template('index.html', prediction = prediction )
 
-@app.route('/homeAPI', methods=['POST'])
+@app.route('/homeAPI', methods=['GET','POST'])
 def homeAPI():
     try:
         if request.method == "POST":
