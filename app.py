@@ -61,7 +61,7 @@ def EcgAPI():
         Ecgpreprocessing(recieveecg)
         ecg=pd.read_csv('test.csv')
         firstprediction = model2.predict(ecg)
-        return jsonify({'prediction': firstprediction})
+        return jsonify({'prediction': firstprediction[0]})
     except:
         return jsonify({'Error': 'Error occur'})
 
